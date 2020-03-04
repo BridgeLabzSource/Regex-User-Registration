@@ -29,7 +29,7 @@ function validateLastName()
 function validateEmailId()
 {
 	read -p "Enter your email id:" emailId
-	patternForEmailId="^[a-zA-Z]+([.]?[+\-a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-z]{2,4}([.]?[a-z]{2,4})?$"
+	patternForEmailId="^[a-z]{1,}([.]?[-]?[+]?[a-z0-9]{1,})?[@]{1}[a-z0-9]{1,}[.]{1}[a-z]{1,}([.]?[a-z]{2,})?$"
 	if [[ $emailId =~ $patternForEmailId ]]
 	then
 		echo Valid
@@ -40,7 +40,7 @@ function validateEmailId()
 function validateMobileNumber()
 {
 	read -p "Enter your mobile number:" mobileNumber
-	patternForMobileNumber="^$COUNTRY_CODE[ ][9876]{1}[0-9]{9}"
+	patternForMobileNumber="^$COUNTRY_CODE[ ][9876]{1}[0-9]{9}$"
 	if [[ $mobileNumber =~ $patternForMobileNumber ]]
 	then
 		echo Valid
@@ -51,8 +51,9 @@ function validateMobileNumber()
 function validatePassword()
 {
 	read -p "Enter your password:" password
-	patternForPassword="^.{8}$"
-	if [[ $password =~ $patternForPassword ]]
+	patternForPassword="^.{8,}$"
+	patternForPassword2="[A-Z]{1,}"
+	if [[ $password =~ $patternForPassword2 ]]
 	then
 		echo Valid
 	else
@@ -60,8 +61,8 @@ function validatePassword()
 	fi
 }
 echo "Welcome to user registration problem "
-#validateFirstName
-#validateLastName
-#validateEmailId
-#validateMobileNumber
+validateFirstName
+validateLastName
+validateEmailId
+validateMobileNumber
 validatePassword
