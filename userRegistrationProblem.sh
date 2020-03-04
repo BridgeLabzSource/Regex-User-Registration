@@ -29,7 +29,7 @@ function validateLastName()
 function validateEmailId()
 {
 	read -p "Enter your email id:" emailId
-	patternForEmailId="^[a-z]{1,}([.]?[-]?[+]?[a-z0-9]{1,})?[@]{1}[a-z0-9]{1,}[.]{1}[a-z]{1,}([.]?[a-z]{2,})?$"
+	patternForEmailId="^[a-z]{1,}([.]?[-]?[+]?[a-z0-9]{1,})?[@]{1}[a-z0-9]{1,}[.]{1}[a-z]{2,4}([.]?[a-z]{2,4})?$"
 	if [[ $emailId =~ $patternForEmailId ]]
 	then
 		echo Valid
@@ -53,7 +53,8 @@ function validatePassword()
 	read -p "Enter your password:" password
 	patternForPassword="^.{8,}$"
 	patternForPassword2="[A-Z]{1,}"
-	if [[ $password =~ $patternForPassword2 ]]
+	patternForPassword3="[0-9]{1,}"
+	if [[ $password =~ $patternForPassword3 ]]
 	then
 		echo Valid
 	else
