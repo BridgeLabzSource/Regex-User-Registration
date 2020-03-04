@@ -54,7 +54,7 @@ function validatePassword()
 	patternForPassword="^.{8,}"
 	patternForPassword2="[A-Z]{1,}"
 	patternForPassword3="[0-9]{1,}"
-	patternForPassword4="[!@#$%^&*(),.?:{}|<>]{1}"
+	patternForPassword4="^[0-9A-Za-z]*[!@#$%&][A-Za-z0-9]*$"
 	if [[ $password =~ $patternForPassword ]]
 	then
 		if [[ $password =~ $patternForPassword2 ]]
@@ -78,8 +78,8 @@ function validatePassword()
 	fi
 }
 echo "Welcome to user registration problem "
-#validateFirstName
-#validateLastName
-#validateEmailId
-#validateMobileNumber
+validateFirstName
+validateLastName
+validateEmailId
+validateMobileNumber
 validatePassword
